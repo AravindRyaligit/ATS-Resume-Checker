@@ -1,0 +1,622 @@
+/* Resume Checker Styles - Adapted to match ATS design system */
+
+.resume-checker {
+    position: relative;
+}
+
+/* Input Section */
+.rc-input-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.rc-input-section > .card:last-child {
+    grid-column: 1 / -1;
+}
+
+/* Upload Area */
+.rc-upload-area {
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rc-upload-area:hover {
+    border-color: var(--accent-primary);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.rc-upload-area.drag-over {
+    border-color: var(--accent-primary);
+    background: rgba(99, 102, 241, 0.1);
+    transform: scale(1.02);
+}
+
+.rc-upload-area svg {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.rc-upload-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.rc-upload-subtext {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.rc-upload-format {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* File Info */
+.rc-file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-md);
+    animation: slideUp 0.3s ease-out;
+}
+
+.rc-file-icon {
+    font-size: 2rem;
+}
+
+.rc-file-details {
+    flex: 1;
+}
+
+.rc-file-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.rc-file-size {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.rc-remove-file {
+    background: rgba(239, 68, 68, 0.2);
+    border: none;
+    color: var(--danger);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1.2rem;
+}
+
+.rc-remove-file:hover {
+    background: rgba(239, 68, 68, 0.3);
+    transform: scale(1.1);
+}
+
+/* Textarea */
+.rc-textarea {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: vertical;
+    transition: all 0.2s;
+}
+
+.rc-textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.rc-textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.rc-char-count {
+    text-align: right;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Analyze Button */
+.rc-analyze-btn {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-sm);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-md);
+    width: 100%;
+}
+
+.rc-analyze-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.rc-analyze-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.rc-analyze-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Results Section */
+.rc-results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Score Card */
+.rc-score-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.rc-score-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #f093fb 0%, #4facfe 100%);
+}
+
+.rc-score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.rc-score-gauge {
+    position: relative;
+    width: 200px;
+    height: 120px;
+}
+
+.rc-gauge-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.rc-gauge-fill {
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rc-score-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.rc-score-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f093fb 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.rc-score-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Category Scores */
+.rc-category-scores {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rc-category-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rc-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rc-category-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.rc-category-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #f093fb 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.rc-category-bar {
+    height: 8px;
+    background: var(--bg-input);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rc-category-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #f093fb 0%, #4facfe 100%);
+    border-radius: 4px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Keywords */
+.rc-keywords-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.rc-keyword-category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.rc-keyword-category h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rc-keyword-badge {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--accent-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.rc-keyword-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.rc-keyword-tag {
+    background: var(--bg-input);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.rc-keyword-tag:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.rc-keyword-tag.priority-high {
+    border-color: var(--danger);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.rc-keyword-tag.priority-medium {
+    border-color: var(--warning);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+/* LLM Suggestions */
+.rc-section-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.rc-llm-suggestions {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.rc-llm-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.rc-llm-section-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.rc-llm-section-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.rc-llm-suggestion-card {
+    background: var(--bg-input);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.2s;
+}
+
+.rc-llm-suggestion-card:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    transform: translateX(4px);
+}
+
+.rc-llm-suggestion-text {
+    flex: 1;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.rc-copy-btn {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: var(--accent-primary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.rc-copy-btn:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+/* Suggestions */
+.rc-suggestions-summary {
+    background: var(--bg-input);
+    border-left: 4px solid var(--accent-primary);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+}
+
+.rc-suggestions-summary h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.rc-suggestions-summary p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.rc-suggestions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rc-suggestion-item {
+    background: var(--bg-input);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition: all 0.2s;
+}
+
+.rc-suggestion-item:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    transform: translateX(4px);
+}
+
+.rc-suggestion-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.rc-suggestion-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.rc-suggestion-icon.critical {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.rc-suggestion-icon.important {
+    background: rgba(245, 158, 11, 0.2);
+}
+
+.rc-suggestion-icon.recommended {
+    background: rgba(99, 102, 241, 0.2);
+}
+
+.rc-suggestion-content {
+    flex: 1;
+}
+
+.rc-suggestion-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.rc-suggestion-description {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.rc-suggestion-action {
+    background: rgba(99, 102, 241, 0.1);
+    border-left: 3px solid var(--accent-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Loading Overlay */
+.rc-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.rc-loading-content {
+    text-align: center;
+}
+
+.rc-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--bg-input);
+    border-top-color: var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1.5rem;
+}
+
+.rc-loading-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.rc-loading-subtext {
+    color: var(--text-secondary);
+}
+
+/* Error Toast */
+.rc-error-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--danger);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-lg);
+    animation: slideInRight 0.3s ease-out;
+    z-index: 1001;
+}
+
+.rc-error-toast svg {
+    color: var(--danger);
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rc-input-section {
+        grid-template-columns: 1fr;
+    }
+}

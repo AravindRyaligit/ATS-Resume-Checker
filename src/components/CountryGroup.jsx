@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import JobCard from './JobCard';
 
-export default function CountryGroup({ country, jobs, onJobClick }) {
+export default function CountryGroup({ country, jobs, onJobClick, onUpdate, onDelete, selectedJobIds, onToggleSelect }) {
     const [isExpanded, setIsExpanded] = useState(true);
 
     return (
@@ -48,6 +48,10 @@ export default function CountryGroup({ country, jobs, onJobClick }) {
                             key={job.id}
                             job={job}
                             onClick={onJobClick}
+                            onUpdate={onUpdate}
+                            onDelete={onDelete}
+                            isSelected={selectedJobIds?.has(job.id)}
+                            onToggleSelect={() => onToggleSelect(job.id)}
                         />
                     ))}
                 </div>
