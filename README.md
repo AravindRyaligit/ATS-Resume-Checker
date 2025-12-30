@@ -17,7 +17,8 @@ This project consists of two main components:
 - **Search & Sort**: Filter applications instantly by role or company; sort by date.
 - **File Management**: Attach specific CVs and cover letters to each application entry.
 
-![Screenshot 2025-12-30 170648.jpg](https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170648.jpg)
+
+
 
 ### 🧠 Resume Checker
 - **Precision Scoring**: Analyzes Skills (40%), Experience (30%), Education (15%), and Keywords (15%).
@@ -27,6 +28,11 @@ This project consists of two main components:
 - **Detailed Reports**: Exports comprehensive analysis reports.
 
 ![Screenshot 2025-12-30 170608.jpg](https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170608.jpg)
+
+![Screenshot 2025-12-30 170648.jpg](https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170648.jpg)
+
+![Screenshot 2025-12-30 170714.jpg](https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170608.jpg)
+
 
 ## Technology Stack
 
