@@ -1,0 +1,88 @@
+/* LLM Suggestions Styles */
+.section-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.llm-section {
+    margin-bottom: 2rem;
+}
+
+.llm-section:last-child {
+    margin-bottom: 0;
+}
+
+.llm-section-header {
+    margin-bottom: 1rem;
+}
+
+.llm-section-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.llm-section-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.llm-suggestion-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: var(--transition);
+    animation: slideInUp 0.3s ease-out;
+}
+
+.llm-suggestion-card:hover {
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateX(4px);
+}
+
+.llm-suggestion-text {
+    flex: 1;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.copy-btn {
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    color: #667eea;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.copy-btn:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.copy-btn.copied {
+    background: rgba(17, 153, 142, 0.2);
+    border-color: #11998e;
+    color: #11998e;
+}
+
+.copy-btn svg {
+    flex-shrink: 0;
+}
