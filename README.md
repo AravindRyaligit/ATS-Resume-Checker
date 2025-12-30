@@ -31,8 +31,7 @@ This project consists of two main components:
 
 ![Screenshot 2025-12-30 170648.jpg](https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170648.jpg)
 
-![Screenshot 2025-12-30 170714.jpg](https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170608.jpg)
-
+![Screenshot 2025-12-30 170714.jpg](https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170714.jpg)
 
 ## Technology Stack
 
