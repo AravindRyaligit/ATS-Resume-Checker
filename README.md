@@ -2,7 +2,7 @@
 
 A comprehensive Applicant Tracking System (ATS) solution that combines a modern job tracking dashboard with an intelligent resume analysis tool. Built with React, Vite, Python (Flask), and AI.
 
-!https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170608.jpg
+!(https://github.com/AravindRyaligit/ATS/blob/main/Screenshot%202025-12-30%20170608.jpg)
 ## Overview
 
 This project consists of two main components:
